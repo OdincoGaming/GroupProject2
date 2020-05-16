@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require("./passport.js");
 
 module.exports = function(app) {
   // Load index page
@@ -10,6 +11,12 @@ module.exports = function(app) {
       });
     });
   });
+
+  app.post('/login',
+  passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+  );
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
