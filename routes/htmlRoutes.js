@@ -12,6 +12,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/userinfo", function(req, res) {
+    res.render("userinfo");
+  });
+
   app.post(
     "/login",
     passport.authenticate("local", {
