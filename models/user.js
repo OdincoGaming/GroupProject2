@@ -45,6 +45,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    goalWeight: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
     height: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -53,5 +60,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  User.associate = function(models) {
+    User.hasMany(models.Foods, {
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };
