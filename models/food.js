@@ -16,5 +16,14 @@ module.exports = function(sequlize, DataTypes) {
       allowNull: false
     }
   });
+
+  Foods.associate = function(models) {
+    Foods.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Foods;
 };
