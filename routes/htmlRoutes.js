@@ -16,6 +16,7 @@ module.exports = function(app) {
     res.render("userinfo");
   });
 
+
   app.post(
     "/login",
     passport.authenticate("local", {
@@ -24,6 +25,10 @@ module.exports = function(app) {
       failureFlash: true
     })
   );
+
+  app.get("/logout", sessionManager.destroySession)
+  app.get("/signup", sessionManager.signUp)
+  app.post("/register", sessionManager.register)
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
