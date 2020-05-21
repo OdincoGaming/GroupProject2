@@ -2,7 +2,7 @@ var db = require("./models")
 
 // render the sign in page
 exports.signUp = function(req,res){
-    res.render("signin");
+    res.render("/");
 }
 
 exports.register = function(req,res){

@@ -1,5 +1,6 @@
 var db = require("../models");
-var passport = require("./passport.js");
+var passport = require("../passport.js");
+var sessionManager = require("../sessionManager");
 
 module.exports = function(app) {
   // Load index page
