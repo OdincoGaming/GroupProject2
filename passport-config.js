@@ -15,8 +15,8 @@ passport.deserializeUser(function(user,done){
 });
 
 passport.use(new LocalStrategy(
-    function(username,password,done){
-        db.User.find({where:{email:username}}).success(function(user){
+    function(email,password,done){
+        db.User.find({where:{email:email}}).success(function(user){
             passwd = user? user.password : ''
             isMatch = db.User.validPassword(password, passwd, done, user)
         });

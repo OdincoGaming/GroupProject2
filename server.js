@@ -6,11 +6,13 @@ var passportConfig = require("./passport-config");
 var sessionManager = require("./sessionManager");
 var db = require("./models");
 var session = require('express-session')
+var bodyparser = require("body-parser");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 app.use(express.json());
 app.use(express.static("public"));
 app.use(session({secret: "appSecret"}));
