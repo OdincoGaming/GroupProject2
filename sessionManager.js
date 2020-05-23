@@ -5,20 +5,27 @@ exports.signUp = function(req, res) {
   res.render("/");
 };
 
-exports.register = function(req, res) {
-  db.User.find({ where: { email: req.email } }).success(function(user) {
-    if (!user) {
-      db.User.create({
-        email: req.body.email,
-        password: req.body.password,
-        age: req.body.age,
-        sex: req.body.sex,
-        weight: req.body.weight,
-        goalWeight: req.body.goalWeight,
-        height: req.body.height
-      }).error(function(err) {
-        console.log(err);
-      });
+
+exports.register = function(req,res){
+    console.log("here!");
+    db.users.find({where: {email: req.email}}).success(function(user){
+        if(!user){
+            db.users.create({email: req.body.userEmail, password: req.body.password,
+                            name: req.body.name, age: req.body.userAge, sex: req.body.userGender,
+                            weight: req.body.userWeight, goalWeight: req.body.userGoalWeight,
+                            height: req.body.userHeight}).error(function(err){
+                console.log(err);
+            });
+        } else {
+            res.redirect("/signup");
+        }
+    });
+    res.redirect("/");
+}
+
+exports.IsAuthenticated = function(req,res,next){
+    if(req.IsAuthenticated()){
+        next();
     } else {
       res.redirect("/signup");
     }

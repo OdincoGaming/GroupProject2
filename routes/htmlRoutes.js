@@ -29,9 +29,9 @@ module.exports = function(app) {
     })
   );
 
-  app.get("/logout", sessionManager.destroySession);
-  app.get("/signup", sessionManager.signUp);
-  app.post("/register", sessionManager.register);
+  app.get("/logout", sessionManager.destroySession)
+  app.get("/signup", sessionManager.signUp)
+  app.post("/userinfo?", sessionManager.register)
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {

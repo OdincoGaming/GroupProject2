@@ -2,17 +2,17 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var passport = require("passport");
-// eslint-disable-next-line no-unused-vars
-var passportConfig = require("./passport-config");
-// eslint-disable-next-line no-unused-vars
-var sessionManager = require("./sessionManager");
+
 var db = require("./models");
-var session = require("express-session");
+var session = require('express-session')
+var bodyparser = require("body-parser");
+
 var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 app.use(express.json());
 app.use(express.static("public"));
 app.use(session({ secret: "appSecret" }));
