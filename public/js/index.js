@@ -5,14 +5,14 @@ $(document).ready(function() {
   var submitBtn = $("#submit-btn");
   var exampleList = $("#example-list");
 
-  var userName = $("#user-name");
-  var userEmail = $("#user-email");
-  var userPassword = $("#user-password");
-  var userAge = $("#user-age");
-  var userGender = $("#user-gender").val();
-  var userHeight = $("#user-height");
-  var userWeight = $("#user-weight");
-  var userGoalWeight = $("#user-goal-weight");
+  var userName = $("#userName");
+  var userEmail = $("#userEmail");
+  var userPassword = $("#userPassword");
+  var userAge = $("#userAge");
+  var userGender = $("#userGender").val();
+  var userHeight = $("#userHeight");
+  var userWeight = $("#userWeight");
+  var userGoalWeight = $("#userGoalWeight");
   // The API object contains methods for each kind of request we'll make
   var API = {
     saveExample: function(user) {

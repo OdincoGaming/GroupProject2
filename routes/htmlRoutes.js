@@ -16,6 +16,9 @@ module.exports = function(app) {
   app.get("/userinfo", function(req, res) {
     res.render("userinfo");
   });
+  app.get("/log", function(req, res) {
+    res.render("log");
+  });
 
   app.post(
     "/login",

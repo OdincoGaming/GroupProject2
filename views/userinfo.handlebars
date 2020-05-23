@@ -8,10 +8,10 @@
       <div class="collapse navbar-collapse" id="">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log</a>
+            <a class="nav-link" href="/log">Log</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"></a>
@@ -22,7 +22,7 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <button type="button" class="btn btn-primary">Sign In</button>
-        <button type="button" class="btn btn-secondary">Join</button>
+        <a href="/userinfo"><button type="button" class="btn btn-secondary">Sign Up</button></a>
       </div>
     </nav>
 </header>
@@ -34,29 +34,29 @@
         <div class="class-body">
           <form>
             <div class="form-row">
-              <div class="col-md-8 mb-3">
-                <label for="validationDefault01">Name</label>
-                <input type="text" class="form-control" id="user-name" required>
+              <div class="col-md-12 mb-3">
+                <label for="userName">Name</label>
+                <input type="text" class="form-control" id="userName">
               </div>
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="userEmail">Email</label>
-                  <input type="text" class="form-control" id="">
+                  <input type="text" class="form-control" id="userEmail">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="userPassword">Password</label>
-                    <input type="text" class="form-control" id="">
+                    <input type="text" class="form-control" id="userPassword">
                   </div>
             </div>
             <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="userAge">Age</label>
-                  <input type="text" class="form-control" id="">
+                  <input type="text" class="form-control" id="userAge">
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="userGender">Gender</label>
-                  <select class="custom-select" id="">
+                  <select class="custom-select" id="userGender">
                     <option selected disabled value="">Choose...</option>
                     <option>...</option>
                     <option value="Female">Female</option>
@@ -65,15 +65,15 @@
                 </div>
                 <div class="col-md-2 mb-3">
                   <label for="userHeight">Height</label>
-                  <input type="text" class="form-control" id="">
+                  <input type="text" class="form-control" id="userHeight">
                 </div>
                 <div class="col-md-2 mb-3">
                     <label for="userWeight">Weight</label>
-                    <input type="text" class="form-control" id="">
+                    <input type="text" class="form-control" id="userWeight">
                 </div>
                 <div class="col-md-2 mb-3">
                     <label for="userGoalWeight">Goal Weight</label>
-                    <input type="text" class="form-control" id="">
+                    <input type="text" class="form-control" id="userGoalWeight">
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Submit form</button>
