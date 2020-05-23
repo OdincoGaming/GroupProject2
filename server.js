@@ -1,7 +1,11 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var passport = require("passport");
+// eslint-disable-next-line no-unused-vars
+var passportConfig = require("./passport-config");
+// eslint-disable-next-line no-unused-vars
+var sessionManager = require("./sessionManager");
 var db = require("./models");
 
 var app = express();
@@ -11,6 +15,9 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(express.session({ secret: "appSecret" }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(

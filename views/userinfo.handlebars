@@ -1,5 +1,38 @@
-<div class="container">
-        <form>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light bg-light">
+      <a class="navbar-brand" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search foods.." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <button type="button" class="btn btn-primary">Sign In</button>
+        <button type="button" class="btn btn-secondary">Join</button>
+      </div>
+    </nav>
+</header>
+
+    <div class="container">
+      <div class="card">
+        <h4>User Info</h4>
+        <hr>
+        <div class="class-body">
+          <form>
             <div class="form-row">
               <div class="col-md-8 mb-3">
                 <label for="validationDefault01">Name</label>
@@ -8,22 +41,22 @@
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label for="validationDefault01">Email</label>
-                  <input type="text" class="form-control" id="user-email" required>
+                  <label for="userEmail">Email</label>
+                  <input type="text" class="form-control" id="">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="validationDefault01">Password</label>
-                    <input type="text" class="form-control" id="user-password" required>
+                    <label for="userPassword">Password</label>
+                    <input type="text" class="form-control" id="">
                   </div>
             </div>
             <div class="form-row">
                 <div class="col-md-3 mb-3">
-                  <label for="validationDefault03">Age</label>
-                  <input type="text" class="form-control" id="user-age" required>
+                  <label for="userAge">Age</label>
+                  <input type="text" class="form-control" id="">
                 </div>
                 <div class="col-md-3 mb-3">
-                  <label for="validationDefault04">Gender</label>
-                  <select class="custom-select" id="user-gender" required>
+                  <label for="userGender">Gender</label>
+                  <select class="custom-select" id="">
                     <option selected disabled value="">Choose...</option>
                     <option>...</option>
                     <option value="Female">Female</option>
@@ -31,26 +64,21 @@
                   </select>
                 </div>
                 <div class="col-md-2 mb-3">
-                  <label for="validationDefault05">Height</label>
-                  <input type="text" class="form-control" id="user-height" required>
+                  <label for="userHeight">Height</label>
+                  <input type="text" class="form-control" id="">
                 </div>
                 <div class="col-md-2 mb-3">
-                    <label for="validationDefault05">Weight</label>
-                    <input type="text" class="form-control" id="user-weight" required>
+                    <label for="userWeight">Weight</label>
+                    <input type="text" class="form-control" id="">
                 </div>
                 <div class="col-md-2 mb-3">
-                    <label for="validationDefault05">Goal Weight</label>
-                    <input type="text" class="form-control" id="user-goal-weight" required>
+                    <label for="userGoalWeight">Goal Weight</label>
+                    <input type="text" class="form-control" id="">
                 </div>
             </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                <label class="form-check-label" for="invalidCheck2">
-                  Agree to terms and conditions
-                </label>
-              </div>
-            </div>
-            <button id="submit-btn" class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit">Submit form</button>
           </form>
+        </div>
+      </div>
+    
     </div>

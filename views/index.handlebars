@@ -1,36 +1,83 @@
 <div id="home">
-  <div class="container">
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Log</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search foods.." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <button type="button" class="btn btn-primary">Sign In</button>
+          <button type="button" class="btn btn-secondary">Join</button>
+        </div>
+      </nav>
+  </header>
 
-<div class="card" style="width:18rem">
-<article class="card-body">
-	<a href="/userinfo" id="sign-up-btn" class="float-right btn btn-outline-primary">Sign up</a>
-	<h4 class="card-title mb-4 mt-1">Sign in</h4>
-	<p>
-		<a href="" class="btn btn-block btn-outline-info"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-		<a href="" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-	</p>
-	<hr>
-	<form>
-    <div class="form-group">
-        <input name="" class="form-control" placeholder="Email or login" type="email">
-    </div>
-    <div class="form-group">
-        <input class="form-control" placeholder="******" type="password">
-    </div>                                     
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Login  </button>
-                </div>
+    <div>
+      <div class="jumbotron">
+        <h1 class="display-6">Conquering Weight Challenges</h1>
+        <form>
+          <div class="form-row">
+            <div class="col-7">
+              <input type="text" class="form-control" placeholder="Search Foods...">
             </div>
-        <div class="col-md-6 text-right">
-            <a class="small" href="#">Forgot password?</a>
-        </div>                                            
-        </div>                                                                  
-    </form>
-    </article>
-    </div>
-</div>
+            <div class="col">
+              <select class="custom-select">
+                  <option selected>Choose...</option>
+                  <option value="1">Breakfast</option>
+                  <option value="2">Lunch</option>
+                  <option value="3">Dinner</option>
+                  <option value="4">Snacks</option>
+                </select>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+        <div class="card" style="width: 350px;">
+            <article class="card-body">
+                <!--Sign up button-->
+	            <a href="/userinfo" class="float-right btn btn-outline-primary">Sign up</a>
+	            <h4 class="card-title mb-4 mt-1">Sign in</h4>
+	                <hr>
+	        <form>
+            <div class="form-group">
+                    <!--Email/UserName-->
+                    <input name="" class="form-control" placeholder="Email or login" type="email">
+            </div>
+            <div class="form-group">
+                    <!--Password-->
+                    <input class="form-control" placeholder="******" type="password">
+            </div>                                     
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!--Login button-->
+                        <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+                    </div>
+                </div>                                           
+            </div>                                                                  
+            </form>
+            </article>
+        </div>
+  </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

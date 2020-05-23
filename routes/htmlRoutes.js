@@ -1,5 +1,6 @@
 var db = require("../models");
-var passport = require("./passport.js");
+var passport = require("../passport.js");
+var sessionManager = require("../sessionManager");
 
 module.exports = function(app) {
   // Load index page
@@ -24,6 +25,10 @@ module.exports = function(app) {
       failureFlash: true
     })
   );
+
+  app.get("/logout", sessionManager.destroySession);
+  app.get("/signup", sessionManager.signUp);
+  app.post("/register", sessionManager.register);
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {

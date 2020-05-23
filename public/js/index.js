@@ -13,7 +13,6 @@ $(document).ready(function() {
   var userHeight = $("#user-height");
   var userWeight = $("#user-weight");
   var userGoalWeight = $("#user-goal-weight");
-  console.log("i mean...yes?");
   // The API object contains methods for each kind of request we'll make
   var API = {
     saveExample: function(user) {
