@@ -1,9 +1,9 @@
-var db = require("./models")
+var db = require("./models");
 
 // render the sign in page
-exports.signUp = function(req,res){
-    res.render("/");
-}
+exports.signUp = function(req, res) {
+  res.render("/");
+};
 
 exports.register = function(req,res){
     console.log("here!");
@@ -26,12 +26,32 @@ exports.IsAuthenticated = function(req,res,next){
     if(req.IsAuthenticated()){
         next();
     } else {
-        next(new Error(401));
+      res.redirect("/signup");
     }
-}
+    res.redirect("/");
+  };
 
-exports.destroySession = function(req,res,next){
-    req.logOut();
-    req.session.destroy()
-    res.redirect("/")
-}
+
+exports.IsAuthenticated = function(req, res, next) {
+  if (req.IsAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/signup");
+  }
+  res.redirect("/");
+};
+
+exports.IsAuthenticated = function(req, res, next) {
+  if (req.IsAuthenticated()) {
+    next();
+  } else {
+    next(new Error(401));
+  }
+};
+
+// eslint-disable-next-line no-unused-vars
+exports.destroySession = function(req, res, next) {
+  req.logOut();
+  req.session.destroy();
+  res.redirect("/");
+};
