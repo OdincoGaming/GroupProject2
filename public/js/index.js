@@ -58,7 +58,7 @@ $(document).ready(function() {
         console.log(response);
       }).then(function(response){
         var res = response.hints;
-        for(var i = 0; i < 10; i++){
+        for(var i = 0; i < res.length; i++){
           var name = res[i].food.label;
           var calories = res[i].food.nutrients.ENERC_KCAL;
           var option = {
