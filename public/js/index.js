@@ -72,6 +72,7 @@ $(document).ready(function() {
         }
         resolve(options)
       });
+    })
   }
 
   // refreshExamples gets new examples from the db and repopulates the list
