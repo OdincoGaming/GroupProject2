@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  var fq = require("../../edamam");
   // Get references to page elements
   // var $exampleText = $("#example-text");
   // var $exampleDescription = $("#example-description");
@@ -58,10 +57,10 @@ $(document).ready(function() {
       $.ajax(settings).done(function (response) {
         console.log(response);
       }).then(function(response){
-        var res = response.data;
+        var res = response.hints;
         for(var i = 0; i < 10; i++){
-          var name = res.body.hints[i].food.label;
-          var calories = res.body.hints[i].food.nutrients.ENERC_KCAL;
+          var name = res[i].food.label;
+          var calories = res[i].food.nutrients.ENERC_KCAL;
           var option = {
               index: i,
               type: mealType,
@@ -70,11 +69,16 @@ $(document).ready(function() {
           }
           options.push(option);
         }
-        resolve(options)
+        if(options.length > 0){
+          console.log(options);
+          resolve(options);
+        } else {
+          reject("error");
+        }
       });
     })
   }
-
+  var options = foodQuery("apple", "lunch");
   // refreshExamples gets new examples from the db and repopulates the list
   // var refreshExamples = function() {
   //   API.getExamples().then(function(data) {
