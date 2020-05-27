@@ -30,11 +30,14 @@
             <h1 class="display-6">Calorie Kingz</h1>
             <form>
               <div class="form-row">
+                <div class="col-2">|
+                  <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                </div>
                 <div class="col-7">
-                  <input type="text" class="form-control" placeholder="Search Foods...">
+                  <input type="text" class="form-control" id="food" name="food" placeholder="Search Foods...">
                 </div>
                 <div class="col">
-                  <select class="custom-select">
+                  <select class="custom-select" id="mealType" name="mealType">
                       <option selected>Choose...</option>
                       <option value="1">Breakfast</option>
                       <option value="2">Lunch</option>
@@ -43,7 +46,7 @@
                     </select>
                 </div>
                 <div class="col">
-                  <button type= "button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                  <button type= "button" class="btn btn-primary"  onclick="foodQuery()" data-toggle="modal" data-target="#exampleModal">Submit</button>
                 </div>
               </div>
             </form>

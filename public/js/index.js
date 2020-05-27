@@ -40,8 +40,11 @@ $(document).ready(function() {
     }
   };
 
-  function foodQuery(ingr, mealType){
+  function foodQuery(){
     return new Promise((resolve,reject)=>{
+      var ingr = $("#food").val().trim;
+      var mealType = $("#mealType").val().trim;
+      var name =  $("#name").val().trim;
       var options = [];
       var settings = {
         "async": true,
@@ -59,12 +62,13 @@ $(document).ready(function() {
       }).then(function(response){
         var res = response.hints;
         for(var i = 0; i < res.length; i++){
-          var name = res[i].food.label;
+          var foodName = res[i].food.label;
           var calories = res[i].food.nutrients.ENERC_KCAL;
           var option = {
               index: i,
-              type: mealType,
               name: name,
+              type: mealType,
+              foodName: foodName,
               calories: calories
           }
           options.push(option);
@@ -78,7 +82,7 @@ $(document).ready(function() {
       });
     })
   }
-  var options = foodQuery("apple", "lunch");
+  
   // refreshExamples gets new examples from the db and repopulates the list
   // var refreshExamples = function() {
   //   API.getExamples().then(function(data) {
