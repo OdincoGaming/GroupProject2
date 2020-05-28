@@ -1,3 +1,31 @@
 .list-group-item {
   line-height: 2.5;
 }
+#navbar {
+  margin-bottom: 20px;
+  background-color: #54457f !important;
+}
+.jumbotron {
+  background-color: white !important;
+  box-shadow: 0 10px 6px -6px #777;
+  color: black !important;
+}
+body {
+  background-color: #CED3DC !important;
+  color: white !important;
+  font-family: 'Fira Sans', sans-serif !important;
+}
+.btn-link {
+  color: white !important;
+}
+.card {
+  color: black !important;
+  box-shadow: 0 10px 6px -6px #777;
+}
+.nav-link {
+  color: white !important;
+}
+.btn-primary {
+  background-color: #54457f !important;
+  border: #54457f !important;
+}
