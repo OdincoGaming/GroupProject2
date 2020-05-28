@@ -13,14 +13,14 @@
 body {
   background-color: #CED3DC !important;
   color: white !important;
-  font-family: 'Fira Sans', sans-serif !important;
 }
 .btn-link {
   color: white !important;
 }
 .card {
   color: black !important;
-  box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777 !important;
+  margin-bottom: 40px;
 }
 .nav-link {
   color: white !important;
