@@ -68,7 +68,7 @@ async function createModal(){
   $(cardBody).append(table);
 
   //here we make the table head
-  var tableHead = $("<thead><th>FoodName</th><th>Calories</th></thead>");
+  var tableHead = $("<thead class='thead-dark'><th>Food Name</th><th>Calories</th></thead>");
   $(table).append(tableHead);
 
   for (var i = 0; i < choices.length; i++) {
