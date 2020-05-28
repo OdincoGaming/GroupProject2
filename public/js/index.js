@@ -40,49 +40,6 @@ $(document).ready(function() {
     }
   };
 
-  function foodQuery(){
-    return new Promise((resolve,reject)=>{
-      var ingr = $("#food").val().trim;
-      var mealType = $("#mealType").val().trim;
-      var name =  $("#name").val().trim;
-      var options = [];
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=" + ingr,
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-host": "edamam-food-and-grocery-database.p.rapidapi.com",
-          "x-rapidapi-key": "c74d2ef8bemshe0ded426aa3cec0p139978jsn12569246ff74"
-        }
-      }
-      
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      }).then(function(response){
-        var res = response.hints;
-        for(var i = 0; i < res.length; i++){
-          var foodName = res[i].food.label;
-          var calories = res[i].food.nutrients.ENERC_KCAL;
-          var option = {
-              index: i,
-              name: name,
-              type: mealType,
-              foodName: foodName,
-              calories: calories
-          }
-          options.push(option);
-        }
-        if(options.length > 0){
-          console.log(options);
-          resolve(options);
-        } else {
-          reject("error");
-        }
-      });
-    })
-  }
-  
   // refreshExamples gets new examples from the db and repopulates the list
   // var refreshExamples = function() {
   //   API.getExamples().then(function(data) {
@@ -169,3 +126,54 @@ $(document).ready(function() {
   });
   exampleList.on("click", ".delete", handleDeleteBtnClick);
 });
+
+function foodQuery(){
+  return new Promise((resolve,reject)=>{
+    var ingr = $("#food").val();
+    var mealType = $("#mealType").val();
+    var name =  $("#name").val();
+    var options = [];
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=" + ingr,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "edamam-food-and-grocery-database.p.rapidapi.com",
+        "x-rapidapi-key": "c74d2ef8bemshe0ded426aa3cec0p139978jsn12569246ff74"
+      }
+    }
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    }).then(function(response){
+      var res = response.hints;
+      for(var i = 0; i < res.length; i++){
+        var foodName = res[i].food.label;
+        var calories = res[i].food.nutrients.ENERC_KCAL;
+        var option = {
+            index: i,
+            name: name,
+            type: mealType,
+            foodName: foodName,
+            calories: calories
+        }
+        options.push(option);
+      }
+      if(options.length > 0){
+        console.log(options);
+        resolve(options);
+      } else {
+        reject("error");
+      }
+    });
+  })
+}
+
+async function createModal(){
+  var choices;
+  await foodQuery().then((options)=>{
+    choices= options;
+    console.log(choices)
+  });
+}
