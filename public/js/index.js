@@ -1,58 +1,43 @@
-$(document).ready(function() {
-  // Get references to page elements
-  // var $exampleText = $("#example-text");
-  // var $exampleDescription = $("#example-description");
-  var submitBtn = $("#submit-btn");
-  var exampleList = $("#example-list");
-
-  var userName = $("#userName");
-  var userEmail = $("#userEmail");
-  var userPassword = $("#userPassword");
-  var userAge = $("#userAge");
-  var userGender = $("#userGender").val();
-  var userHeight = $("#userHeight");
-  var userWeight = $("#userWeight");
-  var userGoalWeight = $("#userGoalWeight");
-  // The API object contains methods for each kind of request we'll make
-  var API = {
-    saveExample: function(user) {
-      console.log("hello");
-      return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "POST",
-        url: "api/user",
-        data: JSON.stringify(user)
-      });
-    },
-    getExamples: function() {
-      return $.ajax({
-        url: "api/user",
-        type: "GET"
-      });
-    },
-    deleteExample: function(id) {
-      return $.ajax({
-        url: "api/examples/" + id,
-        type: "DELETE"
-      });
-    }
-  };
-
-  function foodQuery(ingr, mealType){
-    return new Promise((resolve,reject)=>{
-      var options = [];
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=" + ingr,
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-host": "edamam-food-and-grocery-database.p.rapidapi.com",
-          "x-rapidapi-key": "c74d2ef8bemshe0ded426aa3cec0p139978jsn12569246ff74"
-        }
+function foodQuery(){
+  return new Promise((resolve,reject)=>{
+    var ingr = $("#food").val();
+    var mealType = $("#mealType").val();
+    var name =  $("#name").val();
+    var options = [];
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=" + ingr,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "edamam-food-and-grocery-database.p.rapidapi.com",
+        "x-rapidapi-key": "c74d2ef8bemshe0ded426aa3cec0p139978jsn12569246ff74"
       }
+    }
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    }).then(function(response){
+      var res = response.hints;
+      for(var i = 0; i < res.length; i++){
+        var foodName = res[i].food.label;
+        var calories = res[i].food.nutrients.ENERC_KCAL;
+        var option = {
+            index: i,
+            name: name,
+            type: mealType,
+            foodName: foodName,
+            calories: calories
+        }
+        options.push(option);
+      }
+      if(options.length > 0){
+        console.log(options);
+        resolve(options);
+      } else {
+        reject("error");
+      }
+<<<<<<< HEAD
       
       $.ajax(settings).done(function (response) {
         console.log(response);
@@ -154,14 +139,16 @@ $(document).ready(function() {
 
     API.deleteExample(idToDelete).then(function() {
       refreshExamples();
+=======
+>>>>>>> e322c7be9a198709d36ba5be08c07d2cf80ac173
     });
-  };
+  })
+}
 
-  // Add event listeners to the submit and delete buttons
-  //submitBtn.on("click", handleFormSubmit());
-  submitBtn.on("click", handleFormSubmit, function() {
-    console.log("click worked");
-    //event.preventDefault();
+async function createModal(){
+  var choices;
+  await foodQuery().then((options)=>{
+    choices= options;
+    console.log(choices)
   });
-  exampleList.on("click", ".delete", handleDeleteBtnClick);
-});
+}
