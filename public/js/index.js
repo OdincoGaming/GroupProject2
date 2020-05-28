@@ -48,22 +48,22 @@ async function createModal(){
     console.log(choices)
   });
   //here we make a card
-  var card = $("<div class='jumbotron'>");
-  $("#choicesGoHere").append(card);
+  // var card = $("<div class='card'>");
+  // $("#choicesGoHere").append(card);
 
-  //here we make a card header
-  var cardHeader = $("<div>");
-  cardHeader.addClass("card-title")
-  cardHeader.html("<h1 class='display-6'>Food Diary</h1><br><p class='lead'>Choose a food to add to your diary</p><hr>");
-  $(card).append(cardHeader);
+  // //here we make a card header
+  // var cardHeader = $("<div>");
+  // cardHeader.addClass("card-header")
+  // cardHeader.html("<h1>Food Diary</h1><br><p class='lead'>Choose a food to add to your diary</p><hr>");
+  // $(card).append(cardHeader);
 
-  //here we will make a card body
-  var cardBody = $("<div class='card-body'>");
-  $(cardHeader).append(cardBody);
+  // //here we will make a card body
+  // var cardBody = $("<div class='card-body'>");
+  // $(cardHeader).append(cardBody);
 
   for (var i = 0; i < choices.length; i++) {
-    var cardTitle = $("<div class='card-title'>");
-    cardTitle.html("NAME: " + "<a href='#'>" + choices[i].foodName.toUpperCase() + "</a>" + "\n" + "CALORIES: " + choices[i].calories);
-    $(cardBody).append(cardTitle);
+    //var cardTitle = $("<div class='card-title col-md-4'>");
+    $(".table").append("<tbody><tr><td>" + choices[i].foodName + "</td><td>" + choices[i].calories.toFixed() + "</td></tr></tbody>");
+    //$(cardBody).append(cardTitle);
   }
 }
