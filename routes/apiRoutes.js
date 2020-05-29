@@ -9,8 +9,18 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.post("/api/user", function(req, res) {
-    db.User.create(req.body).then(function(dbExample) {
+  app.post("/api/userinfo", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      age: req.body.age,
+      sex: req.body.sex,
+      weight: req.body.weight,
+      goalWeight: req.body.goalWeight,
+      height: req.body.height
+    }).then(function(dbExample) {
       res.json(dbExample);
     });
   });
