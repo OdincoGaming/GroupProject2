@@ -1,6 +1,6 @@
 <header>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-fixed-top navbar-light bg-light">
-      <div id="logo"><span>Calorie</span><i class="fad fa-crown"></i>Kingz</i></div>
+      <div id="logo"><span>Calorie </span><i class="fad fa-crown"></i> Kingz</div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,7 +24,8 @@
         <!--Jumbotron-->
         <div class="container">
           <div class="jumbotron">
-            <h1 class="display-6">Calorie Kingz</h1>
+            <h1 class="display-6">Calorie <i class="fad fa-crown"></i> Kingz</h1><hr>
+            <p class="lead">Please enter your name and search for foods to enter into your log!</p>
             <form>
               <div class="form-row">
                 <div class="col-2">
@@ -36,14 +37,14 @@
                 <div class="col">
                   <select class="custom-select" id="mealType" name="mealType">
                       <option selected>Choose...</option>
-                      <option value="1">Breakfast</option>
-                      <option value="2">Lunch</option>
-                      <option value="3">Dinner</option>
-                      <option value="4">Snacks</option>
+                      <option value="Breakfast">Breakfast</option>
+                      <option value="Lunch">Lunch</option>
+                      <option value="Dinner">Dinner</option>
+                      <option value="Snacks">Snacks</option>
                     </select>
                 </div>
                 <div class="col">
-                  <button type= "button" class="btn btn-primary"  onclick="createModal()" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                  <button type= "button" class="btn btn-primary"  onclick="createModal()" data-toggle="modal" data-target="#exampleModal">Submit <i class="fas fa-utensils"></i></button>
                 </div>
               </div>
             </form>

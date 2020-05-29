@@ -1,5 +1,3 @@
-//var db = require("../../models");
-
 function foodQuery(){
   return new Promise((resolve,reject)=>{
     var ingr = $("#food").val();
@@ -43,12 +41,22 @@ function foodQuery(){
   })
 }
 
+//This function empties the table when a new search is made.
+var emptyTable = function() {
+  $("#choicesGoHere").empty();
+};
+
 async function createModal(){
   var choices;
+  
   await foodQuery().then((options)=>{
     choices= options;
     console.log(choices)
   });
+
+  
+  emptyTable();
+
   //here we make a card
   var card = $("<div>");
   card.addClass("card");
@@ -79,16 +87,6 @@ async function createModal(){
     $(".table").append('<tbody><tr id="optionRow"><td id="name">' + choices[i].foodName + '</td><td id="calories">' + choices[i].calories.toFixed() + "</td></tr></tbody>");
     //$(cardBody).append(cardTitle);
   }
-
-  // $("#optionRow").on("click", function(){
-  //   db.User.create({
-  //     name: choices[0].name,
-  //     type: mealType,
-  //     foodName: $(this).find("#name"),
-  //     calories: $(this).find("#calories")
-  //   })
-  // })
-
 }
 
 var API = {
