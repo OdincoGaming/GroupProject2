@@ -1,4 +1,4 @@
-var db = require("../../models");
+//var db = require("../../models");
 
 function foodQuery(){
   return new Promise((resolve,reject)=>{
@@ -80,13 +80,67 @@ async function createModal(){
     //$(cardBody).append(cardTitle);
   }
 
-  $("#optionRow").on("click", function(){
-    db.User.create({
-      name: choices[0].name,
-      type: mealType,
-      foodName: $(this).find("#name"),
-      calories: $(this).find("#calories")
-    })
-  })
+  // $("#optionRow").on("click", function(){
+  //   db.User.create({
+  //     name: choices[0].name,
+  //     type: mealType,
+  //     foodName: $(this).find("#name"),
+  //     calories: $(this).find("#calories")
+  //   })
+  // })
 
 }
+
+var API = {
+  saveUser: function(user) {
+    return $.ajax({
+      headers: {
+        "Content-type": "application/json"
+      },
+      type: "POST",
+      url: "api/userinfo",
+      data: JSON.stringify(user)
+    });
+  },
+  getUser: function() {
+    return $.ajax({
+      url: "api/userinfo",
+      type: "GET"
+    });
+  },
+  deleteUser: function(id) {
+    return $.ajax({
+      url: "api/userinfo/" + id,
+      type: "DELETE"
+    });
+  }
+}
+
+var userFormSubmit = function(event) {
+  event.preventDefault();
+
+  var userForm = {
+    name: $("#userName").val().trim(),
+    email: $("#userEmail").val().trim(),
+    password: $("#userPassword").val().trim(),
+    age: $("#userAge").val().trim(),
+    sex: $("#userGender").val().trim(),
+    height: $("#userHeight").val().trim(),
+    weight: $("#userWeight").val().trim(),
+    goalWeight: $("#userGoalWeight").val().trim()
+  }
+
+  API.saveUser(userForm);
+  console.log(userForm);
+
+  $("#userName").val("");
+  $("#userEmail").val("");
+  $("#userPassword").val("");
+  $("#userAge").val("");
+  $("#userGender").val("");
+  $("#userHeight").val("");
+  $("#userWeight").val("");
+  $("#userGoalWeight").val("");
+};
+
+$("#userInfoSubmitBtn").on("click", userFormSubmit);
