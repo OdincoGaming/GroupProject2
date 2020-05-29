@@ -1,3 +1,5 @@
+var db = require("../../models");
+
 function foodQuery(){
   return new Promise((resolve,reject)=>{
     var ingr = $("#food").val();
@@ -71,9 +73,20 @@ async function createModal(){
   var tableHead = $("<thead class='thead-dark'><th>Food Name</th><th>Calories</th></thead>");
   $(table).append(tableHead);
 
+
   for (var i = 0; i < choices.length; i++) {
     //var cardTitle = $("<div class='card-title col-md-4'>");
-    $(".table").append("<tbody><tr><td>" + choices[i].foodName + "</td><td>" + choices[i].calories.toFixed() + "</td></tr></tbody>");
+    $(".table").append('<tbody><tr id="optionRow"><td id="name">' + choices[i].foodName + '</td><td id="calories">' + choices[i].calories.toFixed() + "</td></tr></tbody>");
     //$(cardBody).append(cardTitle);
   }
+
+  $("#optionRow").on("click", function(){
+    db.User.create({
+      name: choices[0].name,
+      type: mealType,
+      foodName: $(this).find("#name"),
+      calories: $(this).find("#calories")
+    })
+  })
+
 }
