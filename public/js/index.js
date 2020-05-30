@@ -90,6 +90,7 @@ async function createModal(){
   $("#optionRow").on("click", foodSubmit);
 }
 
+
 var API = {
   saveUser: function(user) {
     return $.ajax({
@@ -126,7 +127,7 @@ var API = {
   readFood: function(choice){
     return $.ajax({
       url: "api/log",
-      type: "GET"
+      type: "GET",
     });
   },
   deleteFood: function(choice){
@@ -146,7 +147,7 @@ var foodSubmit = function(event){
     mealType: $(this).attr("data-type")
   }
 
-  API.saveFood(choice);
+  API.saveFood(choice)
 }
 
 var foodDelete = function(event){
@@ -157,8 +158,9 @@ var foodDelete = function(event){
     mealType: $(this).attr("data-mealType")
   }
 
-  API.deleteFood(choice);
+  API.deleteFood(choice)
 }
+
 
 var userFormSubmit = function(event) {
   event.preventDefault();

@@ -40,7 +40,7 @@ module.exports = function(app) {
   app.get("/api/log", function(req,res){
     db.Foods.findAll({
       where: {
-        name: req.params.name
+        name: req.body.name
       }
     }).then(function(dbExample) {
       console.log(dbExample);
