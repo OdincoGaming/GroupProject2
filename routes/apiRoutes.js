@@ -25,7 +25,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/log", function(req,res){
+  app.post("/api/log", function(req, res) {
     console.log(JSON.stringify(req.body));
     db.Foods.create({
       name: req.body.name,
@@ -35,9 +35,9 @@ module.exports = function(app) {
     }).then(function(dbExample) {
       res.json(dbExample);
     });
-  })
+  });
 
-  app.get("/api/log", function(req,res){
+  app.get("/api/log", function(req, res) {
     db.Foods.findAll({
       where: {
         name: req.body.name
@@ -46,17 +46,18 @@ module.exports = function(app) {
       console.log(dbExample);
       res.json(dbExample);
     });
-  })
+  });
 
-  app.delete("/api/log", function(req,res){
+  // eslint-disable-next-line no-unused-vars
+  app.delete("/api/log", function(req, res) {
     db.Foods.destroy({
-      where:{
+      where: {
         name: req.params.name,
         label: req.params.label,
         mealType: req.params.mealType
       }
-    })
-  })
+    });
+  });
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
