@@ -84,9 +84,10 @@ async function createModal(){
 
   for (var i = 0; i < choices.length; i++) {
     //var cardTitle = $("<div class='card-title col-md-4'>");
-    $(".table").append('<tbody><tr id="optionRow"><td id="name">' + choices[i].foodName + '</td><td id="calories">' + choices[i].calories.toFixed() + "</td></tr></tbody>");
+    $(".table").append('<tbody><tr data-type="' + choices[i].type + '" data-name="' + choices[i].name + '" data-calories="' + choices[i].calories + '" data-label="' + choices[i].foodName + '" id="optionRow"><td id="label">' + choices[i].foodName + '</td><td id="calories">' + choices[i].calories.toFixed() + "</td></tr></tbody>");
     //$(cardBody).append(cardTitle);
   }
+  $("#optionRow").on("click", foodSubmit);
 }
 
 var API = {
@@ -111,7 +112,41 @@ var API = {
       url: "api/userinfo/" + id,
       type: "DELETE"
     });
+  },
+  saveFood: function(choice){
+    return $.ajax({
+      headers: {
+        "Content-type": "application/json"
+      },
+      url: "api/log",
+      type: "POST",
+      data: JSON.stringify(choice)
+    });
+  },
+  readFood: function(choice){
+    return $.ajax({
+      url: "api/log",
+      type: "GET"
+    });
+  },
+  deleteFood: function(choice){
+    return $.ajax({
+      url: "api/log",
+      type: "DELETE"
+    });
   }
+}
+
+var foodSubmit = function(event){
+  event.preventDefault();
+  var choice = {
+    name: $(this).attr("data-name"),
+    calories: $(this).attr("data-calories"),
+    label: $(this).attr("data-label"),
+    mealType: $(this).attr("data-type")
+  }
+
+  API.saveFood(choice);
 }
 
 var userFormSubmit = function(event) {

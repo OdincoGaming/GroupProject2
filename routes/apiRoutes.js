@@ -25,6 +25,34 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/log", function(req,res){
+    console.log(JSON.stringify(req.body));
+    db.Foods.create({
+      name: req.body.name,
+      calories: req.body.calories,
+      label: req.body.label,
+      mealType: req.body.mealType
+    })
+  })
+
+  app.get("/api/log", function(req,res){
+    db.Foods.findAll({
+      where: {
+        name: req.params.name
+      }
+    })
+  })
+
+  app.delete("/api/log", function(req,res){
+    db.Foods.destroy({
+      where:{
+        name: req.params.name,
+        label: req.params.label,
+        mealType: req.params.mealType
+      }
+    })
+  })
+
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
     db.User.destroy({ where: { id: req.params.id } }).then(function(dbExample) {

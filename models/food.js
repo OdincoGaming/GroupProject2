@@ -14,16 +14,20 @@ module.exports = function(sequlize, DataTypes) {
     label: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    mealType: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
-  Foods.associate = function(models) {
+  /*Foods.associate = function(models) {
     Foods.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
-  };
+  };*/
 
   return Foods;
 };
