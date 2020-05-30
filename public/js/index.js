@@ -149,6 +149,17 @@ var foodSubmit = function(event){
   API.saveFood(choice);
 }
 
+var foodDelete = function(event){
+  event.preventDefault();
+  var choice = {
+    name: $(this).attr("data-name"),
+    label: $(this).attr("data-label"),
+    mealType: $(this).attr("data-mealType")
+  }
+
+  API.deleteFood(choice);
+}
+
 var userFormSubmit = function(event) {
   event.preventDefault();
 

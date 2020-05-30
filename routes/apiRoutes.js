@@ -32,7 +32,9 @@ module.exports = function(app) {
       calories: req.body.calories,
       label: req.body.label,
       mealType: req.body.mealType
-    })
+    }).then(function(dbExample) {
+      res.json(dbExample);
+    });
   })
 
   app.get("/api/log", function(req,res){
@@ -40,7 +42,10 @@ module.exports = function(app) {
       where: {
         name: req.params.name
       }
-    })
+    }).then(function(dbExample) {
+      console.log(dbExample);
+      res.json(dbExample);
+    });
   })
 
   app.delete("/api/log", function(req,res){
