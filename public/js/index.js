@@ -78,13 +78,17 @@ async function createModal(){
   $(cardBody).append(table);
 
   //here we make the table head
-  var tableHead = $("<thead class='thead-dark'><th>Food Name</th><th>Calories</th></thead>");
+  var tableHead = $("<thead class='thead-dark'><th>Food Name</th><th>Calories</th><th>Select</th></thead>");
   $(table).append(tableHead);
 
 
   for (var i = 0; i < choices.length; i++) {
     //var cardTitle = $("<div class='card-title col-md-4'>");
-    $(".table").append('<tbody><tr data-type="' + choices[i].type + '" data-name="' + choices[i].name + '" data-calories="' + choices[i].calories + '" data-label="' + choices[i].foodName + '" id="optionRow"><td id="label">' + choices[i].foodName + '</td><td id="calories">' + choices[i].calories.toFixed() + "</td></tr></tbody>");
+    $(".table").append('<tbody><tr data-type="' + choices[i].type + '" data-name="' + choices[i].name + '" data-calories="' 
+    + choices[i].calories + '" data-label="' + choices[i].foodName + '" id="optionRow"><td id="label">' + choices[i].foodName + '</td><td id="calories">' + choices[i].calories.toFixed() 
+    +'</td><td id="select"><button type="button" class="btn btn-primary">Select</button>'+ "</td></tr></tbody>");
+
+
     //$(cardBody).append(cardTitle);
   }
   $("#optionRow").on("click", foodSubmit);
